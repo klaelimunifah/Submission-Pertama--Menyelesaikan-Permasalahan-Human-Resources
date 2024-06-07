@@ -24,10 +24,11 @@ def data_preparation(data_input):
 st.title("Jaya Jaya Maju Employee Status Prediction")                   # Judul
 
 # Input data yang akan diprediksi
+min_age = 18
 Age = st.number_input("Age",
                       min_value = 18,
                       max_value= 60,
-                      value= None,
+                      value= min_age,
                       step = 1)
 
 Gender = st.selectbox("Gender",
@@ -66,23 +67,31 @@ JobRole = st.selectbox("JobRole",
 BusinessTravel = st.selectbox("Business Travel",
                                ("Non-Travel", "Travel_Rarely", "Travel_Frequently"))
 
+min_income = 0
 MonthlyIncome = st.number_input("Monthly Income (USD)",
-                      value=None,
-                      step = 1)
+                      value=min_income,
+                      step = 100)
 
-SalaryCategory = st.selectbox("Salary Category",
-                               ("Under 5000", "5000-10000", "10000-15000", "Above 15000"))
+if MonthlyIncome < 5000:
+    SalaryCategory = "Under 5000"
+elif (MonthlyIncome >= 5000 and x < 10000):
+    SalaryCategory = "5000-9999"
+elif (MonthlyIncome >= 10000 and x < 15000):
+    SalaryCategory = "10000-14999"
+else:
+     SalaryCategory = "Above 15000"
 
+min_salaryhike = 0
 PercentSalaryHike = st.number_input("Percent Salary  Hike (%)",
                       min_value = 0,
-                      max_value= 100,
-                      value=None,
+                      value=min_salaryhike,
                       step = 1)
 
+min_totalyears = 0
 TotalWorkingYears = st.number_input("Total Working Years",
                       min_value = 0,
                       max_value= 50,
-                      value=None,
+                      value=min_totalyears,
                       step = 1)
 
 MaritalStatus = st.selectbox("Marital Status",
@@ -98,7 +107,7 @@ JobSatisfaction = st.select_slider("Job Satisfaction",
 EnvironmentSatisfaction = st.select_slider("Environment Satisfaction",
                                      options=["1", "2", "3", "4", "5"],
                                      label_visibility="visible")
-RelationshipSatisfaction = st.select_slider("RelationshipSatisfaction",
+RelationshipSatisfaction = st.select_slider("Relationship Satisfaction",
                                      options=["1", "2", "3", "4", "5"],
                                      label_visibility="visible")
 WorkLifeBalance = st.select_slider("Work Life Balance",
@@ -120,7 +129,7 @@ data_df = pd.DataFrame(data, columns=[ 'Age', 'Gender', 'Education',
        'RelationshipSatisfaction', 'WorkLifeBalance'])
 
 # Load Model Machine Learning
-model = joblib.load("employee_model.sav", mmap_mode="r")
+model = joblib.load("employee_modelprediction.sav", mmap_mode="r")
 
 # Menu prediksi
 if st.button("PREDICT"):
