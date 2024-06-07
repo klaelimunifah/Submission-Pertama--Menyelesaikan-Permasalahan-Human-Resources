@@ -13,15 +13,7 @@ def data_preparation(data_input):
     data_prep_cat = data_prep.select_dtypes(include = ['object'])
     preprocessor = ColumnTransformer(transformers=[('onehot', OneHotEncoder(), data_prep_cat.columns)], remainder='passthrough')
     X_transformed = preprocessor.fit_transform(data_prep)
-    output = pd.DataFrame(X_transformed, columns=['1', '2', '3','4', '5', '6',
-                                                  '7', '8', '9','10', '11', '12',
-                                                  '13', '14', '15','16', '17', '18',
-                                                  '19', '20', '21','22', '23', '24',
-                                                  '25', '26', '27','28', '29', '30',
-                                                  '31', '32', '33','34', '35', '36',
-                                                  '37', '38', '39','40', '41', '42',
-                                                  '43', '44', '45','46', '47', '48',
-                                                  '49', '50', '51','52', '53', '54'])
+    output = pd.DataFrame(X_transformed)
     nunique = output.nunique()
     cols_to_drop = nunique[nunique == 1].index
     output = output.drop(cols_to_drop, axis=1)
