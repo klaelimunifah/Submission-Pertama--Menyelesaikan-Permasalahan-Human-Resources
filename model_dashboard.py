@@ -5,7 +5,7 @@ from category_encoders import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 
 # Fungsi data_preparation(data_input)
-''' Mengolah data input yang akan diprediksi'''
+#Mengolah data input yang akan diprediksi
 def data_preparation(data_input):
     employee_data = pd.read_csv("employee_data.csv")
     employee_data = employee_data.drop(columns = ['EmployeeId', 'Attrition', 'Status'])
