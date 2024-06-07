@@ -74,9 +74,9 @@ MonthlyIncome = st.number_input("Monthly Income (USD)",
 
 if MonthlyIncome < 5000:
     SalaryCategory = "Under 5000"
-elif (MonthlyIncome >= 5000 and x < 10000):
+elif (MonthlyIncome >= 5000 and MonthlyIncome < 10000):
     SalaryCategory = "5000-9999"
-elif (MonthlyIncome >= 10000 and x < 15000):
+elif (MonthlyIncome >= 10000 and MonthlyIncome < 15000):
     SalaryCategory = "10000-14999"
 else:
      SalaryCategory = "Above 15000"
