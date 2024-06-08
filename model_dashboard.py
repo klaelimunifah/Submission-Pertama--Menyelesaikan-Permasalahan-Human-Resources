@@ -1,4 +1,5 @@
 import pandas as pd
+import catboost
 import streamlit as st
 import joblib
 from category_encoders import OneHotEncoder
@@ -7,11 +8,11 @@ from sklearn.compose import ColumnTransformer
 # Fungsi data_preparation(data_input)
 #Mengolah data input yang akan diprediksi
 def data_preparation(data_input):
-    employee_data = pd.read_csv("employee_data.csv")
-    employee_data = employee_data.drop(columns = ['EmployeeId', 'Attrition', 'Status'])
+    employee_data = pd.read_csv("D:/pythonProject/employee_model/employee_data.csv")
+    employee_data = employee_data.drop(columns = ["EmployeeId", "Attrition", "Status"])
     data_prep = pd.concat([employee_data, data_input])
-    data_prep_cat = data_prep.select_dtypes(include = ['object'])
-    preprocessor = ColumnTransformer(transformers=[('onehot', OneHotEncoder(), data_prep_cat.columns)], remainder='passthrough')
+    data_prep_cat = data_prep.select_dtypes(include = ["object"])
+    preprocessor = ColumnTransformer(transformers=[("onehot", OneHotEncoder(), data_prep_cat.columns)], remainder="passthrough")
     X_transformed = preprocessor.fit_transform(data_prep)
     output = pd.DataFrame(X_transformed)
     nunique = output.nunique()
@@ -121,15 +122,15 @@ data = [[Age, Gender, Education,
        PercentSalaryHike, TotalWorkingYears, MaritalStatus,
        int(PerformanceRating), int(JobSatisfaction), int(EnvironmentSatisfaction),
        int(RelationshipSatisfaction), int(WorkLifeBalance)]]
-data_df = pd.DataFrame(data, columns=[ 'Age', 'Gender', 'Education',
-       'EducationField', 'Edutxt', 'JobLevel', 'Department', 'JobRole',
-       'BusinessTravel', 'MonthlyIncome', 'SalaryCategory',
-       'PercentSalaryHike', 'TotalWorkingYears', 'MaritalStatus',
-       'PerformanceRating', 'JobSatisfaction', 'EnvironmentSatisfaction',
-       'RelationshipSatisfaction', 'WorkLifeBalance'])
+data_df = pd.DataFrame(data, columns=[ "Age", "Gender", "Education",
+       "EducationField", "Edutxt", "JobLevel", "Department", "JobRole",
+       "BusinessTravel", "MonthlyIncome", "SalaryCategory",
+       "PercentSalaryHike", "TotalWorkingYears", "MaritalStatus",
+       "PerformanceRating", "JobSatisfaction", "EnvironmentSatisfaction",
+       "RelationshipSatisfaction", "WorkLifeBalance"])
 
 # Load Model Machine Learning
-model = joblib.load("model.sav", mmap_mode="r")
+model = joblib.load("D:/pythonProject/employee_model/model.sav", mmap_mode="r")
 
 # Menu prediksi
 if st.button("PREDICT"):
@@ -137,9 +138,9 @@ if st.button("PREDICT"):
         input = data_preparation(data_df)
         prediction = model.predict(input)
         if prediction == 1:
-            st.subheader('Employee Status: Inactive',  divider='red')
+            st.subheader("Employee Status: Inactive",  divider="red")
         else:
-            st.subheader('Employee Status: Active',  divider='blue')
+            st.subheader("Employee Status: Active",  divider="blue")
             
         if st.button("Reset"):
             st.rerun()
