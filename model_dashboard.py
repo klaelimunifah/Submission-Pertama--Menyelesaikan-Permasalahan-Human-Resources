@@ -132,7 +132,7 @@ data_df = pd.DataFrame(data, columns=[ "Age", "Gender", "Education",
        "RelationshipSatisfaction", "WorkLifeBalance"])
 
 # Load Model Machine Learning
-model = joblib.load("D:/pythonProject/employee_model/model.sav", mmap_mode="r")
+model = joblib.load("model.sav", mmap_mode="r")
 
 # Menu prediksi
 if st.button("PREDICT"):
