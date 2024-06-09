@@ -1,20 +1,38 @@
-# Submission Pertama: Menyelesaikan Permasalahan Human Resources
+# Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech
 
-## Set Up Environtment
+## Business Understanding
 
-conda create --name main-ds python=3.11
+Jelaskan latar belakang bisnis dari perushaan tersebut.
 
-conda activate main-ds
+### Permasalahan Bisnis
 
-pip streamlit pandas numpy scikit-learn==1.5.0 joblib category_encoders
+Tuliskan seluruh permasalahan bisnis yang akan diselesaikan.
 
-## Run steamlit app
+### Cakupan Proyek
 
-streamlit run model_dashboard.py
+Tuliskan cakupan proyek yang akan dikerjakan.
 
-Link github repository: https://github.com/klaelimunifah/Submission-Pertama--Menyelesaikan-Permasalahan-Human-Resources)
+### Persiapan
 
-Link main dashboard looker studio: https://lookerstudio.google.com/reporting/bfe26f76-2840-4202-bee9-2f7f7f5e6c9d
+Sumber data: ....
 
-Link prediction model dashboard streamlit: https://submission-pertama--menyelesaikan-permasalahan-human-resources.streamlit.app/
- 
+Setup environment:
+
+```
+
+```
+
+## Business Dashboard
+
+Jelaskan tentang business dashboard yang telah dibuat. Jika ada, sertakan juga link untuk mengakses dashboard tersebut.
+
+## Conclusion
+
+Jelaskan konklusi dari proyek yang dikerjakan.
+
+### Rekomendasi Action Items (Optional)
+
+Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
+
+- action item 1
+- action item 2
