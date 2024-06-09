@@ -1,5 +1,4 @@
 import pandas as pd
-import catboost
 import streamlit as st
 import joblib
 from category_encoders import OneHotEncoder
@@ -95,6 +94,9 @@ TotalWorkingYears = st.number_input("Total Working Years",
                       value=min_totalyears,
                       step = 1)
 
+OverTime = st.selectbox("Working Overtime",
+                               ("Yes", "No"))
+
 MaritalStatus = st.selectbox("Marital Status",
                                ("Single", "Married", "Divorced"))
 
@@ -119,13 +121,13 @@ WorkLifeBalance = st.select_slider("Work Life Balance",
 data = [[Age, Gender, Education,
        EducationField, Edutxt, int(JobLevel), Department, JobRole,
        BusinessTravel, MonthlyIncome, SalaryCategory,
-       PercentSalaryHike, TotalWorkingYears, MaritalStatus,
+       PercentSalaryHike, TotalWorkingYears, OverTime, MaritalStatus,
        int(PerformanceRating), int(JobSatisfaction), int(EnvironmentSatisfaction),
        int(RelationshipSatisfaction), int(WorkLifeBalance)]]
 data_df = pd.DataFrame(data, columns=[ "Age", "Gender", "Education",
        "EducationField", "Edutxt", "JobLevel", "Department", "JobRole",
        "BusinessTravel", "MonthlyIncome", "SalaryCategory",
-       "PercentSalaryHike", "TotalWorkingYears", "MaritalStatus",
+       "PercentSalaryHike", "TotalWorkingYears", "OverTime", "MaritalStatus",
        "PerformanceRating", "JobSatisfaction", "EnvironmentSatisfaction",
        "RelationshipSatisfaction", "WorkLifeBalance"])
 
