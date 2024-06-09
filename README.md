@@ -22,7 +22,7 @@ Untuk mencegah hal ini semakin parah, manajer departemen HR ingin meminta bantua
 
 ### Persiapan
 
-Sumber data: https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee
+Sumber data: https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee (https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/main/employee/employee_data.csv)
 
 Setup environment: 
 conda create --name main-ds python=3.11
