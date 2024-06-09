@@ -26,7 +26,9 @@ Sumber data: https://github.com/dicodingacademy/dicoding_dataset/tree/main/emplo
 
 Setup environment: 
 conda create --name main-ds python=3.11
+
 conda activate main-ds
+
 pip install streamlit==1.28.1 pandas==2.1.1 numpy==1.24.3 seaborn==0.13.1 plotly==5.15.0 squarify==0.4.3 scikit-learn==1.5.0 joblib==1.4.2 category_encoders==1.3.0
 
 ```
