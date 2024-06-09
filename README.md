@@ -1,11 +1,15 @@
 # Submission Pertama: Menyelesaikan Permasalahan Human Resources
 
 ## Set Up Environtment
+
 conda create --name main-ds python=3.11
+
 conda activate main-ds
+
 pip streamlit pandas numpy scikit-learn==1.5.0 joblib category_encoders
 
 ## Run steamlit app
+
 streamlit run model_dashboard.py
 
 Link github repository: https://github.com/klaelimunifah/Submission-Pertama--Menyelesaikan-Permasalahan-Human-Resources)
