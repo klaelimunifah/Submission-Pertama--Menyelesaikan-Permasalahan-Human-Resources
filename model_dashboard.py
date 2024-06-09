@@ -7,7 +7,7 @@ from sklearn.compose import ColumnTransformer
 # Fungsi data_preparation(data_input)
 #Mengolah data input yang akan diprediksi
 def data_preparation(data_input):
-    employee_data = pd.read_csv("D:/pythonProject/employee_model/employee_data.csv")
+    employee_data = pd.read_csv("employee_data.csv")
     employee_data = employee_data.drop(columns = ["EmployeeId", "Attrition", "Status"])
     data_prep = pd.concat([employee_data, data_input])
     data_prep_cat = data_prep.select_dtypes(include = ["object"])
